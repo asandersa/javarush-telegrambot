@@ -6,12 +6,14 @@ import com.github.asandersa.jrtb.command.CommandContainer;
 import com.github.asandersa.jrtb.command.CommandName;
 import com.github.asandersa.jrtb.command.UnknownCommand;
 import com.github.asandersa.jrtb.service.SendBotMessageService;
+import com.github.asandersa.jrtb.service.TelegramUserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.awt.event.ItemListener;
 import java.util.Arrays;
 
 @DisplayName("Unit-level testing for CommandContainer")
@@ -22,7 +24,8 @@ public class CommandContainerTest {
     @BeforeEach
     public void init() {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
-        commandContainer = new CommandContainer(sendBotMessageService);
+        TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
+        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService);
     }
 
     @Test

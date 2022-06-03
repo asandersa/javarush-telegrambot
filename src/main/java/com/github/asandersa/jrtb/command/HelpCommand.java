@@ -18,10 +18,11 @@ public class HelpCommand implements Command {
 
                     <b>Начать\\закончить работу с ботом</b>
                     %s - начать работу со мной
+                    %s - получить статистику
                     %s - приостановить работу со мной
                     %s - получить помощь в работе со мной
                     """,
-            START.getCommandName(), STOP.getCommandName(), HELP.getCommandName());
+            START.getCommandName(), STAT.getCommandName(), STOP.getCommandName(), HELP.getCommandName());
 
 
 
