@@ -2,6 +2,7 @@ package com.github.asandersa.jrtb.bot;
 
 import com.github.asandersa.jrtb.command.CommandContainer;
 import com.github.asandersa.jrtb.service.SendBotMessageServiceImpl;
+import com.github.asandersa.jrtb.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -21,8 +22,8 @@ public class JavarushTelegramBot extends TelegramLongPollingBot {
     @Value("${bot.token}")
     private String token;
 
-    public JavarushTelegramBot() {
-        this.commandConteiner = new CommandContainer(new SendBotMessageServiceImpl(this));
+    public JavarushTelegramBot(TelegramUserService telegramUserService) {
+        this.commandConteiner = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
     }
 
     /**
