@@ -1,4 +1,4 @@
-package com.github.asandersa.jrtb;
+package com.github.asandersa.jrtb.javarushclient;
 
 import com.github.asandersa.jrtb.javarushclient.JavaRushGroupClient;
 import com.github.asandersa.jrtb.javarushclient.JavaRushGroupClientImpl;

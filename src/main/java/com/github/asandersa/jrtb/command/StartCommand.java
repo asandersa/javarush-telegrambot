@@ -18,7 +18,7 @@ public class StartCommand implements Command {
 
             Я Javarush Telegram Bot, разработанный @asandersa \uD83D\uDE07\s
 
-            Я помогу тебе быть вкурсе тех статей, что тебе интересны.
+            Я помогу быть вкурсе тех статей, что тебе интересны.
             Я еще маленький и только учусь, не будь строг ко мне!\uD83E\uDD0D\uD83E\uDD0D\uD83E\uDD0D""";
 
 
@@ -32,7 +32,7 @@ public class StartCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        String chatId = update.getMessage().getChatId().toString();
+        Long chatId = update.getMessage().getChatId();
 
         telegramUserService.findByChatId(chatId).ifPresentOrElse(
                 user -> {

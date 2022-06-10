@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.asandersa</groupId>
 	<artifactId>javarush-telegrambot</artifactId>
-	<version>0.3.0-SNAPSHOT</version>
+	<version>0.5.0-SNAPSHOT</version>
 	<name>Javarush TelegramBot</name>
 	<description>Telegram bot for Javarush from community to community</description>
 
@@ -18,6 +18,7 @@
 		<java.version>17</java.version>
 		<telegrambots.starter>6.0.1</telegrambots.starter>
 		<unirest.version>3.13.6</unirest.version>
+		<apache.commons.version>3.11</apache.commons.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -63,6 +64,12 @@
 			<groupId>com.konghq</groupId>
 			<artifactId>unirest-java</artifactId>
 			<version>${unirest.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${apache.commons.version}</version>
 		</dependency>
 
 		<dependency>
