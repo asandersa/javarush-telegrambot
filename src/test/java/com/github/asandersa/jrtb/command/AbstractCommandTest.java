@@ -1,4 +1,4 @@
-package com.github.asandersa.jrtb;
+package com.github.asandersa.jrtb.command;
 
 
 import com.github.asandersa.jrtb.bot.JavarushTelegramBot;

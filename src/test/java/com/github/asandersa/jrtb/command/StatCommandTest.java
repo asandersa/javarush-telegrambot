@@ -1,7 +1,4 @@
-package com.github.asandersa.jrtb;
-
-import com.github.asandersa.jrtb.command.Command;
-import com.github.asandersa.jrtb.command.StatCommand;
+package com.github.asandersa.jrtb.command;
 
 import static com.github.asandersa.jrtb.command.CommandName.STAT;
 import static com.github.asandersa.jrtb.command.StatCommand.STAT_MESSAGE;

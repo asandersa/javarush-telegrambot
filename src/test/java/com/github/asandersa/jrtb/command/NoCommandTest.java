@@ -1,7 +1,5 @@
-package com.github.asandersa.jrtb;
+package com.github.asandersa.jrtb.command;
 
-import com.github.asandersa.jrtb.command.Command;
-import com.github.asandersa.jrtb.command.NoCommand;
 import org.junit.jupiter.api.DisplayName;
 
 import static com.github.asandersa.jrtb.command.CommandName.NO;

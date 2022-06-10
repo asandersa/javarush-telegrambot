@@ -1,4 +1,4 @@
-package com.github.asandersa.jrtb;
+package com.github.asandersa.jrtb.service;
 
 import com.github.asandersa.jrtb.bot.JavarushTelegramBot;
 import com.github.asandersa.jrtb.service.SendBotMessageService;
@@ -26,13 +26,13 @@ public class SendBotMessageServiceTest {
     public void shouldProperlySendMessage() throws TelegramApiException {
 
         //given — подготавливаем все необходимое к тесту
-        String chatId = "test_chat_id";
+        Long chatId = 123456789l;
         String message = "test_message";
 
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setText(message);
-        sendMessage.setChatId(chatId);
+        sendMessage.setChatId(chatId.toString());
         sendMessage.enableHtml(true);
 
         //when — запускаем метод, который планируем тестировать

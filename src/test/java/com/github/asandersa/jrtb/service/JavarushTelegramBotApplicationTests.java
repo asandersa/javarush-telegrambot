@@ -1,4 +1,4 @@
-package com.github.asandersa.jrtb;
+package com.github.asandersa.jrtb.service;
 
 import com.github.asandersa.jrtb.bot.JavarushTelegramBot;
 import org.junit.jupiter.api.Test;
