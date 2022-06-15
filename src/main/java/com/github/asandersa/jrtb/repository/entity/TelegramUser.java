@@ -2,6 +2,7 @@ package com.github.asandersa.jrtb.repository.entity;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Data
 @Entity //сущность для работы с БД
 @Table(name = "tg_user") //определяем имя таблицы
+@EqualsAndHashCode(exclude = "groupSubs")
 public class TelegramUser {
 
     @Id //определяем Primary Key

@@ -23,6 +23,7 @@ public class HelpCommand implements Command {
                     Работа с подписками на группы:
                     %s - подписаться на группу статей
                     %s - получить список групп, на которые подписан
+                    %s - отписаться от группы статей 
                     
                     %s - получить помощь в работе со мной
                     %s - получить статистику бота
@@ -31,6 +32,7 @@ public class HelpCommand implements Command {
             STOP.getCommandName(),
             ADD_GROUP_SUB.getCommandName(),
             LIST_GROUP_SUB.getCommandName(),
+            DELETE_GROUP_SUB.getCommandName(),
             HELP.getCommandName(),
             STAT.getCommandName());
 
