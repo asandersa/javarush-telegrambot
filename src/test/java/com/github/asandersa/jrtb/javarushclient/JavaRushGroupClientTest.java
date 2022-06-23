@@ -1,14 +1,11 @@
 package com.github.asandersa.jrtb.javarushclient;
 
-import com.github.asandersa.jrtb.javarushclient.JavaRushGroupClient;
-import com.github.asandersa.jrtb.javarushclient.JavaRushGroupClientImpl;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupCountRequestArgs;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupDiscussionInfo;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupInfo;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupRequestArgs;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 import java.util.List;
 

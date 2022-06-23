@@ -5,11 +5,13 @@ import com.github.asandersa.jrtb.javarushclient.dto.PostInfo;
 import com.github.asandersa.jrtb.repository.entity.GroupSub;
 import com.github.asandersa.jrtb.repository.entity.TelegramUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class FindNewArticleServiceImpl implements FindNewArticleService {
 
     public static final String JAVARUSH_WEB_POST_FORMAT = "https://javarush.ru/groups/posts/%s";
@@ -38,9 +40,13 @@ public class FindNewArticleServiceImpl implements FindNewArticleService {
     private void notifySubscribersAboutNewArticles(GroupSub gSub, List<PostInfo> newPosts) {
         Collections.reverse(newPosts);
         List<String> messagesWithNewArticles = newPosts.stream()
-                .map(post -> String.format("✨Вышла новая статья <b>%s</b> в группе <b>%s</b>.✨\n\n" +
-                                "<b>Описание:</b> %s\n\n" +
-                                "<b>Ссылка:</b> %s\n",
+                .map(post -> String.format("""
+                                ✨Вышла новая статья <b>%s</b> в группе <b>%s</b>.✨
+
+                                <b>Описание:</b> %s
+
+                                <b>Ссылка:</b> %s
+                                """,
                         post.getTitle(), gSub.getTitle(), post.getDescription(), getPostUrl(post.getKey())))
                 .collect(Collectors.toList());
 
