@@ -10,15 +10,15 @@
 	</parent>
 	<groupId>com.github.asandersa</groupId>
 	<artifactId>javarush-telegrambot</artifactId>
-	<version>0.6.0-SNAPSHOT</version>
+	<version>0.7.0-SNAPSHOT</version>
 	<name>Javarush TelegramBot</name>
 	<description>Telegram bot for Javarush from community to community</description>
 
 	<properties>
 		<java.version>17</java.version>
 		<telegrambots.starter>6.0.1</telegrambots.starter>
-		<unirest.version>3.13.6</unirest.version>
-		<apache.commons.version>3.11</apache.commons.version>
+		<unirest.version>3.13.10</unirest.version>
+		<apache.commons.version>3.12.0</apache.commons.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -82,12 +82,14 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 </project>

@@ -13,7 +13,6 @@ public class StatCommand implements Command {
     public final static String STAT_MESSAGE = """
             Данный Telegram Bot использует %s человек.""";
 
-    @Autowired
     public StatCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.telegramUserService = telegramUserService;
         this.sendBotMessageService = sendBotMessageService;
@@ -22,7 +21,7 @@ public class StatCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        int activeUserCount = telegramUserService.retrieveAllActiveUsers().size();
+        int activeUserCount = telegramUserService.findAllActiveUsers().size();
         sendBotMessageService.sendMessage(update.getMessage().getChatId(), String.format( STAT_MESSAGE,activeUserCount));
 
     }

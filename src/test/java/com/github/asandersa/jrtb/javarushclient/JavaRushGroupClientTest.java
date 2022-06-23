@@ -1,21 +1,20 @@
 package com.github.asandersa.jrtb.javarushclient;
 
-import com.github.asandersa.jrtb.javarushclient.JavaRushGroupClient;
-import com.github.asandersa.jrtb.javarushclient.JavaRushGroupClientImpl;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupCountRequestArgs;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupDiscussionInfo;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupInfo;
 import com.github.asandersa.jrtb.javarushclient.dto.GroupRequestArgs;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 import java.util.List;
 
 import static com.github.asandersa.jrtb.javarushclient.dto.GroupInfoType.TECH;
 
 public class JavaRushGroupClientTest {
-    private final JavaRushGroupClient groupClient = new JavaRushGroupClientImpl("https://javarush.ru/api/1.0/rest");
+
+    public static final String JAVARUSH_API_PATH = "https://javarush.ru/api/1.0/rest";
+    private final JavaRushGroupClient groupClient = new JavaRushGroupClientImpl(JAVARUSH_API_PATH);
 
     @Test
     public void shouldProperlyGetGroupsWithEmptyArgs() {

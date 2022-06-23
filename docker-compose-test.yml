@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  jrtb-db:
+    platform: linux/amd64
+    image: mysql:8.0
+    restart: always
+
+    environment:
+      MYSQL_DATABASE: "dev_jrtb_db"
+      MYSQL_USER: 'dev_jrtb_db_user'
+      MYSQL_PASSWORD: 'dev_jrtb_db_password'
+      MYSQL_ROOT_PASSWORD: 'password'
+
+    ports:
+      - '3307:3306'
+
+    expose:
+      - '3307'
+
+      #Чтобы запустить этот файл для работы с docker-compose,
+      #нужно использовать в запросе флаг -f.
+      #docker-compose -f docker-compose-test.yml up -d
