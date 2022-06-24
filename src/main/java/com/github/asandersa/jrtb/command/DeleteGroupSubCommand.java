@@ -43,7 +43,7 @@ public class DeleteGroupSubCommand implements Command {
             sendGroupIdList(getChatId(update));
             return;
         }
-        String groupId = getMessage(update).split(" ")[1];
+        String groupId = getMessage(update).split("\\s|@test_javarush_asandersa_bot ")[1];
         Long chatId = getChatId(update);
         if(isNumeric(groupId)) {
             Optional<GroupSub> optionalGroupSub = groupSubService.findById(Integer.valueOf(groupId));

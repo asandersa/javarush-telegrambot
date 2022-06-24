@@ -4,11 +4,15 @@ import com.github.asandersa.jrtb.command.CommandContainer;
 import com.github.asandersa.jrtb.javarushclient.JavaRushGroupClient;
 import com.github.asandersa.jrtb.service.GroupSubService;
 import com.github.asandersa.jrtb.service.SendBotMessageServiceImpl;
+import com.github.asandersa.jrtb.service.StatisticsService;
 import com.github.asandersa.jrtb.service.TelegramUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
+
+import java.util.List;
 
 import static com.github.asandersa.jrtb.command.CommandName.NO;
 
@@ -24,8 +28,15 @@ public class JavarushTelegramBot extends TelegramLongPollingBot {
     @Value("${bot.token}")
     private String token;
 
-    public JavarushTelegramBot(TelegramUserService telegramUserService, JavaRushGroupClient groupClient, GroupSubService groupSubService) {
-        this.commandConteiner = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService, groupClient, groupSubService);
+    @Autowired
+    public JavarushTelegramBot(TelegramUserService telegramUserService,
+                               JavaRushGroupClient groupClient,
+                               GroupSubService groupSubService,
+                               StatisticsService statisticsService,
+                               @Value("#{'${bot.admins}'.split(',')}")List<String> admins) {
+        this.commandConteiner =
+                new CommandContainer(new SendBotMessageServiceImpl(this),
+                        telegramUserService, groupClient, groupSubService, statisticsService, admins);
     }
 
     /**
@@ -52,11 +63,12 @@ public class JavarushTelegramBot extends TelegramLongPollingBot {
         //Проверяем существование сообщения, извлекаем текст и айдишник.
         if (update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
+            String userName = update.getMessage().getFrom().getUserName();
             if (message.startsWith(COMMAND_PREFIX)) {
-                String commandIdentifier = message.split(" ")[0].toLowerCase();
-                commandConteiner.retrieveCommand(commandIdentifier).execute(update);
+                String commandIdentifier = message.split("\\s|@" )[0].toLowerCase();
+                commandConteiner.retrieveCommand(commandIdentifier, userName).execute(update);
             } else {
-                commandConteiner.retrieveCommand(NO.getCommandName()).execute(update);
+                commandConteiner.retrieveCommand(NO.getCommandName(), userName).execute(update);
             }
 
         }
