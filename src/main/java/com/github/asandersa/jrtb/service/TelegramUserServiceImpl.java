@@ -32,4 +32,9 @@ public class TelegramUserServiceImpl implements TelegramUserService{
     public Optional<TelegramUser> findByChatId(Long chatId) {
         return telegramUserRepository.findById(chatId);
     }
+
+    @Override
+    public List<TelegramUser> findAllInActiveUsers() {
+        return telegramUserRepository.findAllByActiveFalse();
+    }
 }
